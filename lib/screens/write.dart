@@ -5,12 +5,13 @@ import 'package:crypto/crypto.dart';
 import 'dart:convert'; // for the utf8.encode method
 
 
-class EditPage extends StatelessWidget {
+class WritePage extends StatelessWidget {
   String title = "";
   String text = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
@@ -32,7 +33,7 @@ class EditPage extends StatelessWidget {
               onChanged: (String title){this.title = title;},
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
               keyboardType: TextInputType.multiline,
-              maxLines: null,
+              maxLines: 10,
               decoration: InputDecoration(
                 // border: OutlineInputBorder(),
                 hintText: '제목',
@@ -42,7 +43,7 @@ class EditPage extends StatelessWidget {
             TextField(
               onChanged: (String text){this.text = text;},
               keyboardType: TextInputType.multiline,
-              maxLines: null,
+              maxLines: 10,
               decoration: InputDecoration(
                 hintText: '메모 내용'
               ),
